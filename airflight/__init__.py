@@ -7,5 +7,6 @@ def main(global_config, **settings):
     with Configurator(settings=settings) as config:
         config.include('.collections')
         config.include('.routes')
-        config.scan(ignore='tests')
+        config.include('cornice')
+        config.include('.views.api', route_prefix='/api')
     return config.make_wsgi_app()

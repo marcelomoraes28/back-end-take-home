@@ -17,7 +17,9 @@ requires = [
     'pyramid_retry',
     'pyramid_tm',
     'transaction',
-    'pymongo==3.8.0'
+    'pymongo==3.8.0',
+    'cornice==3.5.1',
+    'marshmallow==2.19.2'
 ]
 
 tests_require = [

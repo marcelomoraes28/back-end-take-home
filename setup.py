@@ -14,18 +14,18 @@ requires = [
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
     'waitress',
-    'alembic',
     'pyramid_retry',
     'pyramid_tm',
-    'SQLAlchemy',
     'transaction',
-    'zope.sqlalchemy',
+    'pymongo==3.8.0'
 ]
 
 tests_require = [
     'WebTest >= 1.3.1',  # py3 compat
     'pytest >= 3.7.4',
     'pytest-cov',
+    'mongomock==3.16.0',
+    'mock==3.0.5'
 ]
 
 setup(

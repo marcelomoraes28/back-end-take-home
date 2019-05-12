@@ -1,5 +1,10 @@
 from airflight.collections.base import mongo_client_
 
+# Add shortcuts from collections
+from .airline import AirlineCollection
+from .airport import AirportCollection
+from .routes import RouteCollection
+
 
 def includeme(config):
     """

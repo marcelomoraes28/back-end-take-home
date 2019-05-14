@@ -1,11 +1,11 @@
 [![Python Version](https://img.shields.io/badge/python-2.7%7C3.6-blue.svg)](https://img.shields.io/badge/python-3.6-blue.svg)
 
 # Airflight project
-Airflight is a project that offers resource to you find the best flight route to your destination.
+Airflight is a project that offers you a resources to find the best flight route to your destination.
 
 ## Getting Started
 
-These instructions will help you run the project.
+These instructions will help you to run the project.
 
 **Basic requirements**
 - Mongodb community 4 or higher

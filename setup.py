@@ -18,7 +18,8 @@ requires = [
     'pymongo==3.8.0',
     'cornice==3.5.1',
     'colander==1.7.0',
-    'cornice-swagger==0.7.0'
+    'cornice-swagger==0.7.0',
+    'pyramid-auto-env==0.1.2'
 ]
 
 tests_require = [

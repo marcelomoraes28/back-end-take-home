@@ -15,11 +15,10 @@ requires = [
     'pyramid_debugtoolbar',
     'waitress',
     'pyramid_retry',
-    'pyramid_tm',
-    'transaction',
     'pymongo==3.8.0',
     'cornice==3.5.1',
-    'marshmallow==2.19.2'
+    'colander==1.7.0',
+    'cornice-swagger==0.7.0'
 ]
 
 tests_require = [
@@ -32,7 +31,7 @@ tests_require = [
 
 setup(
     name='airflight',
-    version='0.0',
+    version='1.0',
     description='airflight',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[

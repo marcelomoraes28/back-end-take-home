@@ -13,7 +13,7 @@ class TestAPIFlight:
         Get best route without connections when the airline is United Airlines
         """
         req = DummyRequest(method='GET')
-        req.matchdict = MultiDict([('origin', 'ANK'), ('destination', 'YYZ')])
+        req.params = MultiDict([('origin', 'ANK'), ('destination', 'YYZ')])
         get_route = FlightAPI(req).get_best_route()
         assert len(get_route['data']) == 1
         assert get_route['data'][0]['airline'] == {'name': 'United Airlines',
@@ -27,7 +27,7 @@ class TestAPIFlight:
             United Airlinesand the connection is Turkish Airlines
         """
         req = DummyRequest(method='GET')
-        req.matchdict = MultiDict([('origin', 'YWH'), ('destination', 'ANK')])
+        req.params = MultiDict([('origin', 'YWH'), ('destination', 'ANK')])
         get_route = FlightAPI(req).get_best_route()
         assert len(get_route['data']) == 2
         assert get_route['data'][0]['airline'] == {'name': 'United Airlines',
@@ -49,12 +49,12 @@ class TestAPIFlight:
         In this case the system chooses Route 2
         """
         req = DummyRequest(method='GET')
-        req.matchdict = MultiDict([('origin', 'YWH'), ('destination', 'ADA')])
+        req.params = MultiDict([('origin', 'YWH'), ('destination', 'ADA')])
         get_route = FlightAPI(req).get_best_route()
         assert len(get_route['data']) == 1
 
     def test_get_route_origin_is_the_same_as_destination(self):
         req = DummyRequest(method='GET')
-        req.matchdict = MultiDict([('origin', 'YWH'), ('destination', 'YWH')])
+        req.params = MultiDict([('origin', 'YWH'), ('destination', 'YWH')])
         with pytest.raises(OriginIsTheSameAsTheDestination):
             FlightAPI(req).get_best_route()

@@ -1,4 +1,5 @@
 from pyramid.httpexceptions import HTTPBadRequest
+from pyramid.threadlocal import get_current_registry
 
 from airflight.collections import RouteCollection, AirportCollection, \
     AirlineCollection
@@ -9,8 +10,13 @@ from airflight.views.api.v1.flight.exceptions import NoFlightFound, \
 class FlightAPI(object):
     """
     Flight API
+    Important:
+        MAX_DEPTH by default is 10
+        Be careful with MAX_DEPTH not to exceed the maximum
+        number of iterations
     """
-    MAX_DEPTH = 10  # max number of connections by flight
+    # max number of connections by flight
+    MAX_DEPTH = int(get_current_registry().settings.get('route.max_depth', '10'))  # noqa
 
     def __init__(self, request):
         self.request = request
@@ -53,10 +59,6 @@ class FlightAPI(object):
     def _get_routes(self):
         """
         Get all possible routes
-        Important:
-            MAX_DEPTH by default is 10
-            Be careful with MAX_DEPTH not to exceed the maximum
-            number of iterations
         """
         # Get all routes with set destination
         destinations = RouteCollection().get_many(

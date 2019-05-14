@@ -1,6 +1,8 @@
 from pyramid.config import Configurator
+from pyramid_auto_env import autoenv_settings
 
 
+@autoenv_settings(prefix='airflight')
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """

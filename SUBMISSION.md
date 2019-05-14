@@ -18,7 +18,7 @@ These instructions will help you to run the project.
 
 - **AIRFLIGHT_MONGO_URL**: Mongodb url Eg: mongodb://localhost:27017/
 - **AIRFLIGHT_MONGO_DB**: Mongodb database Eg: airflight
-- **ROUTE_MAX_DEPTH**: Number maximum of flight connection (By default is 10)
+- **AIRFLIGHT_ROUTE_MAX_DEPTH**: Number maximum of flight connection (By default is 10)
 
 *Attention: Be careful not to cause the buffer overflow by setting a large number in ROUTE_MAX_DEPTH*
 

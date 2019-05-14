@@ -15,12 +15,12 @@ class FlightAPI(object):
     def __init__(self, request):
         self.request = request
         self.data = {}
-        self.origin = request.matchdict['origin']
-        self.destination = request.matchdict['destination']
+        self.origin = request.params['origin']
+        self.destination = request.params['destination']
         if self.origin == self.destination:
             raise OriginIsTheSameAsTheDestination(
                 {"message": "The origin can not be the same as destination",
-                 "status": HTTPBadRequest})
+                 "status": HTTPBadRequest().status_code})
 
     def get_best_route(self):
         self._get_routes()
@@ -37,7 +37,8 @@ class FlightAPI(object):
                 new_data.append(data)
         if not new_data:
             raise NoFlightFound(
-                {"message": "Route not found", "status": HTTPBadRequest})
+                {"message": "Route not found",
+                 "status": HTTPBadRequest().status_code})
         # Ordering data by number of elements
         new_data.sort(key=lambda x: len(x))
         # Set the list reversed

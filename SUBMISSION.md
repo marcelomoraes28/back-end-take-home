@@ -1,4 +1,4 @@
-[![Python Version](https://img.shields.io/badge/python-2.7%7C3.6-blue.svg)](https://img.shields.io/badge/python-3.6-blue.svg)
+[![Python Version](https://img.shields.io/badge/python-3.6-blue.svg)](https://img.shields.io/badge/python-3.6-blue.svg)
 
 # Airflight project
 Airflight is a project that offers you a resources to find the best flight route to your destination.

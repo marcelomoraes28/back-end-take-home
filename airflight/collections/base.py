@@ -41,7 +41,7 @@ class BaseCollection(object, metaclass=ABCMeta):
     def db(self):
         return self.mongo_cli.con[self.collection]
 
-    def get(self, condition):
+    def get(self, condition, *args, **kwargs):
         """
         Get register from a collection
         :param condition: {"name": "foo-bar"}
@@ -50,8 +50,21 @@ class BaseCollection(object, metaclass=ABCMeta):
         """
         if "_id" in condition and isinstance(condition["_id"], str):
             condition["_id"] = ObjectId(condition["_id"])
-        return self.db.find_one(condition)
+        return self.db.find_one(condition, *args, **kwargs)
+
+    def get_many(self, condition, *args, **kwargs):
+        """
+        Get many registries from a collection
+        :param condition: {"name": "foo-bar"}
+        :return: [{"_id": ObjectId('5cd81989fba44b8858774d0b'),
+          "name": "foo-bar"}, ...]
+        """
+        return self.db.find(condition, *args, **kwargs)
 
     @abstractmethod
     def insert(self, data):
+        pass
+
+    @abstractmethod
+    def insert_many(self, data):
         pass

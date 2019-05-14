@@ -15,3 +15,6 @@ class AirlineCollection(BaseCollection):
 
     def insert(self, data):
         return self.db.insert_one(data).inserted_id
+
+    def insert_many(self, data):
+        return self.db.insert_many(data).inserted_ids

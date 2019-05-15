@@ -26,7 +26,7 @@ Usage example:
 ```
 export AIRFLIGHT_MONGO_URL=mongodb://localhost:27017/
 export AIRFLIGHT_MONGO_DB=airflight
-export ROUTE_MAX_DEPTH=8
+export AIRFLIGHT_ROUTE_MAX_DEPTH=8
 ```
 ### Running the project
 
